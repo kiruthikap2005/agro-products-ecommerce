@@ -100,7 +100,15 @@ Postman
 
 VS Code
 
-📂 Project Structure agro_products/ │ ├── client/ # React frontend │ ├── server/ # Node + Express backend │ ├── models/ │ ├── routes/ │ ├── controllers/ │ ├── middleware/ │ └── .env │ └── README.md
+📂 Project Structure agro_products/ │ 
+├── client/ # React frontend │ 
+├── server/ # Node + Express backend │
+├── models/ │
+├── routes/ │ 
+├── controllers/ │
+├── middleware/ │ 
+└── .env │
+└── README.md
 
 🌟 Future Enhancements
 
