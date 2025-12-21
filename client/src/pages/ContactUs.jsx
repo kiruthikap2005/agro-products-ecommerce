@@ -30,11 +30,11 @@ const ContactUs = () => {
                     <div className="space-y-4">
                         <p className="flex items-center space-x-3">
                             <span className="text-2xl">📍</span>
-                            <span>123 Green Farm Road, Agri City, India 560001</span>
+                            <span>Perundurai,Erode</span>
                         </p>
                         <p className="flex items-center space-x-3">
                             <span className="text-2xl">📞</span>
-                            <span>+91 98765 43210</span>
+                            <span>+91 987654321</span>
                         </p>
                         <p className="flex items-center space-x-3">
                             <span className="text-2xl">✉️</span>

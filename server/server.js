@@ -6,6 +6,9 @@ const cors = require('cors');
 const productRoutes = require('./routes/productRoutes');
 const orderRoutes = require('./routes/orderRoutes');
 const userRoutes = require('./routes/userRoutes');
+const adminRoutes = require('./routes/adminRoutes');
+
+const initAdmin = require('./utils/adminInit');
 
 const app = express();
 
@@ -18,13 +21,17 @@ mongoose.connect(process.env.MONGO_URI, {
     useNewUrlParser: true,
     useUnifiedTopology: true
 })
-.then(() => console.log('MongoDB Connected'))
-.catch(err => console.log(err));
+    .then(() => {
+        console.log('MongoDB Connected');
+        initAdmin();
+    })
+    .catch(err => console.log(err));
 
 // Routes
 app.use('/api/products', productRoutes);
 app.use('/api/orders', orderRoutes);
 app.use('/api/users', userRoutes);
+app.use('/api/admin', adminRoutes);
 
 app.get('/', (req, res) => {
     res.send('Agro Products API is running');

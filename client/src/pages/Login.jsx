@@ -5,6 +5,7 @@ import { useNavigate, Link } from 'react-router-dom';
 const Login = () => {
     const [email, setEmail] = useState('');
     const [password, setPassword] = useState('');
+    const [role, setRole] = useState('user'); // Default to user
     const [error, setError] = useState('');
     const { login } = useAuth();
     const navigate = useNavigate();
@@ -12,9 +13,13 @@ const Login = () => {
     const handleSubmit = async (e) => {
         e.preventDefault();
         setError('');
-        const res = await login(email, password);
+        const res = await login(email, password, role);
         if (res.success) {
-            navigate('/');
+            if (res.user.role === 'admin') {
+                navigate('/admin');
+            } else {
+                navigate('/');
+            }
         } else {
             setError(res.message);
         }
@@ -29,6 +34,32 @@ const Login = () => {
                 <h2 className="text-3xl font-bold text-agro-dark text-center mb-6">Welcome Back</h2>
                 {error && <div className="bg-red-100 text-red-700 p-3 rounded mb-4">{error}</div>}
                 <form onSubmit={handleSubmit} className="space-y-6">
+                    {/* Role Selection */}
+                    <div className="flex justify-center space-x-6 mb-4">
+                        <label className="flex items-center space-x-2 cursor-pointer">
+                            <input
+                                type="radio"
+                                name="role"
+                                value="user"
+                                checked={role === 'user'}
+                                onChange={(e) => setRole(e.target.value)}
+                                className="w-4 h-4 text-agro-green focus:ring-agro-green"
+                            />
+                            <span className={`text-sm font-bold ${role === 'user' ? 'text-agro-green' : 'text-gray-500'}`}>User</span>
+                        </label>
+                        <label className="flex items-center space-x-2 cursor-pointer">
+                            <input
+                                type="radio"
+                                name="role"
+                                value="admin"
+                                checked={role === 'admin'}
+                                onChange={(e) => setRole(e.target.value)}
+                                className="w-4 h-4 text-agro-green focus:ring-agro-green"
+                            />
+                            <span className={`text-sm font-bold ${role === 'admin' ? 'text-agro-green' : 'text-gray-500'}`}>Admin</span>
+                        </label>
+                    </div>
+
                     <div>
                         <label className="block text-gray-700 font-medium mb-2">Email</label>
                         <input

@@ -16,7 +16,7 @@ const Navbar = () => {
     };
 
     return (
-        <nav className="bg-agro-dark text-white shadow-md sticky top-0 z-50">
+        <nav className="bg-agro-dark/95 backdrop-blur-sm text-white shadow-lg fixed top-0 left-0 w-full z-[999]">
             <div className="container mx-auto px-4 py-3 flex justify-between items-center">
                 {/* Logo */}
                 <Link to="/" className="flex items-center space-x-2 text-xl font-bold">
@@ -66,7 +66,12 @@ const Navbar = () => {
                     </li>
                     {user ? (
                         <li className="flex items-center space-x-3">
-                            <span className="font-semibold text-agro-light">Hi, {user.username}</span>
+                            <div className="flex flex-col items-end">
+                                <span className="font-semibold text-agro-light">Hi, {user.username}</span>
+                                {user.role === 'admin' && (
+                                    <Link to="/admin" className="text-[10px] bg-red-600 text-white px-1.5 py-0.5 rounded font-bold uppercase tracking-wider hover:bg-red-700 transition mt-1">Admin</Link>
+                                )}
+                            </div>
                             <button
                                 onClick={handleLogout}
                                 className="bg-red-500 text-white px-4 py-1.5 rounded-lg hover:bg-red-600 transition font-semibold"
@@ -78,7 +83,7 @@ const Navbar = () => {
                         <li>
                             <Link
                                 to="/login"
-                                className="bg-white text-agro-dark border border-white px-5 py-1.5 rounded-lg hover:bg-gray-100 transition font-bold"
+                                className="bg-white text-black border border-white px-5 py-1.5 rounded-lg hover:bg-gray-100 transition font-bold"
                             >
                                 Login
                             </Link>
@@ -106,7 +111,12 @@ const Navbar = () => {
                         <hr className="border-agro-green" />
                         {user ? (
                             <>
-                                <li className="text-agro-light font-semibold">Hi, {user.username}</li>
+                                <li className="flex items-center justify-between">
+                                    <span className="text-agro-light font-semibold">Hi, {user.username}</span>
+                                    {user.role === 'admin' && (
+                                        <span className="text-[10px] bg-red-600 text-white px-2 py-0.5 rounded font-bold uppercase tracking-wider">Admin</span>
+                                    )}
+                                </li>
                                 <li>
                                     <button
                                         onClick={handleLogout}

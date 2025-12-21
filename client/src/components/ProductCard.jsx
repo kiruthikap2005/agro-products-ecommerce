@@ -24,7 +24,7 @@ const ProductCard = ({ product }) => {
                 <p className="text-gray-600 text-sm mb-4 line-clamp-2 flex-grow">{product.description}</p>
                 <button
                     onClick={() => addToCart(product)}
-                    className="w-full bg-agro-green text-white py-2 rounded-lg font-semibold hover:bg-agro-dark transition-colors duration-200 shadow-md active:scale-95 transform"
+                    className="w-full bg-agro-green text-black py-2 rounded-lg font-semibold hover:bg-agro-dark transition-colors duration-200 shadow-md active:scale-95 transform"
                 >
                     Add to Cart
                 </button>
