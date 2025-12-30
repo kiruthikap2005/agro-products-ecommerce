@@ -124,7 +124,7 @@ Stock management
 
 👩‍💻 Author
 
-Abipriya R Engineering Student | Full Stack Developer 📍 Tamil Nadu, India 📫 GitHub: https://github.com/AbipriyaR
+Kiruthika P Engineering Student | Full Stack Developer 📍 Tamil Nadu, India 📫 GitHub: https://github.com/kiruthikap2005
 
 🙌 Acknowledgements
 
